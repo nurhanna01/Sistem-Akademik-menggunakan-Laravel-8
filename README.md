@@ -18,7 +18,7 @@ Sistem Informasi Akademik(simak) adalah sebuah web yang digunakan oleh pegawai a
 
 # Install
 - Clone Repository
-- git clone https://github.com/nurhanna01/Sistem-Informasi-Akademik-Sederhana-dengan-Laravel-8.git
+- git clone https://github.com/nurhanna01/Sistem-Informasi-Akademik-menggunakan-Laravel-8.git
 - cd Sistem-Informasi-Akademik-Sederhana-dengan-Laravel-8
 - composer install
 - npm install
