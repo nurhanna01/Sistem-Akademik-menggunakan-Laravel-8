@@ -22,7 +22,7 @@ Sistem Informasi Akademik(simak) adalah sebuah web yang digunakan oleh pegawai a
 - cd Sistem-Informasi-Akademik-menggunakan-Laravel-8
 - composer install
 - npm install
-- cp .env.example .env
+- Duplikat file .env.example, lalu rename menjadi .env
 - Buka .env lalu ubah baris berikut sesuai dengan nama database yang akan dipakai
 DB_PORT=3306
 DB_DATABASE=laravel
@@ -31,7 +31,7 @@ DB_PASSWORD=
 
 # Instalasi program/web
 - php artisan key:generate
-- php artisan migrate --seed
+- php artisan migrate
 
 - buka terminal jalankan -> php artisan serve
 - jalankan di browser
