@@ -43,3 +43,4 @@ DB_PASSWORD=
 - pegawai akademik = /akademik
 - admin = /admin
 - mahasiswa = /student
+- dosen = /lecture
