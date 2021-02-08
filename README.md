@@ -7,12 +7,15 @@ Sistem Informasi Akademik(simak) adalah sebuah web yang digunakan oleh pegawai a
 - Mahasiswa dapat mengambil mata kuliah(sks)
 
 # Fitur yang tersedia di Sistem Informasi Akademik
-* Autentikasi Siswa
-* CRD User pegawai akademik
-* CRUD Admin
-* CRUD Mahasiswa
-* CRUD Mata Kuliah
-* Menambah MK oleh Mahasiswa dengan elequent relasi many to many
+* Login Siswa dan dosen
+* CRuD pegawai akademik oleh pegawai akademik
+* CRUD Admin oleh pegawai akademik
+* CRUD Mahasiswa oleh pegawai akademik
+- CRUD Dosen oleh pegawai akademik
+* CRUD Mata Kuliah/Courses oleh admin
+
+- Menambahkan Courses/SKS oleh admin dengan hubugan anatara course dengan lecture menggunakan elequent one to many
+* Menambah courses/SKS oleh Mahasiswa dengan elequent relasi many to many
 * Dll
 
 
