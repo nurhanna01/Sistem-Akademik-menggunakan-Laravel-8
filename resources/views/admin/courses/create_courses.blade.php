@@ -47,6 +47,17 @@
                 <input type="text" name="jumlah_sks" class="form-control" placeholder="Jumlah SKS">
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Dosen Pengajar:</strong>
+                    <select name="lecture_id" id="lecture" class="form-control">
+                        <option value="">== Select Lecture ==</option>
+                        @foreach ($lectures as $lecture)
+                            <option value="{{ $lecture->id }}">{{ $lecture->nama }}</option>
+                        @endforeach
+                    </select>
+            </div>
+        </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>

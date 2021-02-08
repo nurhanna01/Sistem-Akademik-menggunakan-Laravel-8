@@ -11,4 +11,8 @@ class Lecture extends Model
     protected $fillable=[
         'nip','nama','password','jenis_kelamin','alamat'
     ];
+
+    public function courses(){
+    	return $this->hasMany(Course::class);
+    }
 }

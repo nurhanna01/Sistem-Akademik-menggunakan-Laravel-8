@@ -24,12 +24,14 @@
         <tr>
             <th class="text-center">Kode Mk</th>
             <th class="text-center">Nama MK</th>
+            <th class="text-center">Dosen Pengajar</th>
             <th width="180px" class="text-center">Action</th>
         </tr>
         @foreach ($mystudent->courses as $course)
             <tr>
                 <td class="text-center">{{ $course->kode_mk }}</td>
                 <td class="text-center">{{ $course->nama_mk }}</td>
+                <td class="text-center">{{ $course->lecture->nama }}</td>
                 <td class="text-center">
                     <form action="{{ route('student.destroy_course_student',$course->id) }}" method="POST">
      

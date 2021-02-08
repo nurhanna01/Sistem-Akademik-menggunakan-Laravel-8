@@ -8,16 +8,16 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('student.login.submit') }}">
+                    <form method="POST" action="{{ route('lecture.login.submit') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="nim" class="col-md-4 col-form-label text-md-right">{{ __('NIM') }}</label>
+                            <label for="nip" class="col-md-4 col-form-label text-md-right">{{ __('NIP') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nim" type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}" required autocomplete="nim" autofocus>
+                                <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip') }}" required autocomplete="nip" autofocus>
 
-                                @error('nim')
+                                @error('nip')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        <!-- <div class="form-group row">
+<!--                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>

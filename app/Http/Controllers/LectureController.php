@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lecture;
+use Illuminate\Support\Facades\Hash;
+use Auth;
 
 class LectureController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:lecture');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +22,9 @@ class LectureController extends Controller
      */
     public function index()
     {
-        $lectures=Lecture::all();
-        return view('lectures.index',compact('lectures'));
+        $id=Auth::id();
+        $lecture = Lecture::find($id);
+        return view('lectures.index',compact('lecture'));
     }
 
     /**
@@ -53,8 +62,9 @@ class LectureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
+        $id=Auth::id();
         $lecture=Lecture::find($id);
         return view('lectures.show',compact('lecture'));
     }
@@ -107,5 +117,15 @@ class LectureController extends Controller
     {
         $lecture=Lecture::find($id)->delete();
         return redirect()->route('lectures.index')->with('Lecture delete successfully');
+    }
+
+
+    // ==========================================================
+    // Siswa yang mengambil MK yang saja ajar
+
+    public function mycourse(){
+        $id=Auth::id();
+        $lecture=Lecture::find($id);
+        return view('lectures.mycourses',compact('lecture'));
     }
 }

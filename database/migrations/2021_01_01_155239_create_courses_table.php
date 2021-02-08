@@ -18,6 +18,8 @@ class CreateCoursesTable extends Migration
             $table->string('kode_mk')->unique();
             $table->string('nama_mk');
             $table->integer('jumlah_sks');
+            $table->unsignedBigInteger('lecture_id');
+            $table->foreign('lecture_id')->references('id')->on('lectures')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@
             <h2>Create New Lecture</h2>
         </div>
         <div class="float-right">
-            <a class="btn btn-secondary" href="{{ route('lectures.index') }}"> Back</a>
+            <a class="btn btn-secondary" href="{{ route('akademik.lectures') }}"> Back</a>
         </div>
     </div>
 </div>

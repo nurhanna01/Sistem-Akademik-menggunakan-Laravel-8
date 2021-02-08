@@ -324,7 +324,13 @@ class AkademikController extends Controller
             'alamat'=>'required'
         ]);
 
-        Lecture::create($request->all());
+        Lecture::create([
+            'nip' => $request->nip,
+            'password' => Hash::make($request->password),
+            'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'alamat' => $request->alamat
+        ]);
         return redirect()->route('akademik.lectures')
                          ->with('success','Lectures created successfully.');
     }

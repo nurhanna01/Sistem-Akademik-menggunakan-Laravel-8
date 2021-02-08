@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Course;
+use App\Models\Lecture;
 
 class AdminController extends Controller
 {
@@ -99,13 +100,15 @@ class AdminController extends Controller
     public function courses()
     {
         $courses=Course::all();
+        
+
         return view('admin.courses.courses',compact('courses'));
     }
 
     public function create_courses()
     {
-        
-        return view('admin.courses.create_courses');
+        $lectures=Lecture::all();
+        return view('admin.courses.create_courses',compact('lectures'));
         
     }
 
@@ -114,7 +117,8 @@ class AdminController extends Controller
         $request->validate([
             'kode_mk'=>'required',
             'nama_mk'=>'required',
-            'jumlah_sks'=>'required'
+            'jumlah_sks'=>'required',
+            'lecture_id'=>'required'
         ]);
 
         Course::create($request->all());
@@ -125,7 +129,9 @@ class AdminController extends Controller
     public function edit_courses($id)
     {
         $course = Course::find($id);
-        return view('admin.courses.edit_courses',compact('course'));
+        $lectures=Lecture::all();
+
+        return view('admin.courses.edit_courses',compact(['course','lectures']));
     }
 
 
@@ -134,13 +140,15 @@ class AdminController extends Controller
         $request->validate([
             'kode_mk'=>'required',
             'nama_mk'=>'required',
-            'jumlah_sks'=>'required'
+            'jumlah_sks'=>'required',
+            'lecture_id'=>'required'
         ]);
 
         $course=Course::find($id);
         $course->kode_mk=$request->kode_mk;
         $course->nama_mk=$request->nama_mk;
         $course->jumlah_sks=$request->jumlah_sks;
+        $course->lecture_id=$request->lecture_id;
 
         $course->save();
         return redirect()->route('admin.courses')

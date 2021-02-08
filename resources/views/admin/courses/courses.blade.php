@@ -23,8 +23,10 @@
     <table class="table table-bordered">
         <tr>
             <th width="20px" class="text-center">No</th>
-            <th>Title</th>
-            <th>SKS</th>
+            <th width="20px" class="text-center">Nama Mk</th>
+            <th width="20px" class="text-center">Jumlah SKS</th>
+            <th width="20px" class="text-center">Dosen Pengajar</th>
+
             <th width="280px"class="text-center">Action</th>
         </tr>
         @foreach ($courses as $course)
@@ -32,6 +34,7 @@
             <td class="text-center"></td>
             <td>{{ $course->nama_mk }}</td>
             <td>{{ $course->jumlah_sks }}</td>
+            <td>{{ $course->lecture->nama }}</td>
             <td class="text-center">
                 <form action="{{ route('admin.destroy_courses',$course->id) }}" method="POST">
  

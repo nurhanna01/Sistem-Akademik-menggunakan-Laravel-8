@@ -26,6 +26,7 @@
                 <th class="text-center">kode_mk</th>
                 <th class="text-center">Nama MK</th>
                 <th class="text-center">SKS</th>
+                <th class="text-center">Dosen Pengajar</th>
                 <th width="40px"class="text-center">Pilih MK</th>
             </tr>
             @foreach ($courses as $course)
@@ -33,7 +34,7 @@
                 <td class="text-center">{{ $course->kode_mk }}</td>
                 <td class="text-center">{{ $course->nama_mk }}</td>
                 <td class="text-center">{{ $course->jumlah_sks }}</td>
-
+                <td class="text-center">{{ $course->lecture->nama }}</td>
                 <td class="text-center">
                 <input type="checkbox" name="course_id[]" value="{{ $course->id }}">
                 <input type="hidden" name="nama_mk" value="{{ $course->nama_mk }}">

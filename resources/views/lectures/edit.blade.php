@@ -1,5 +1,7 @@
 @extends('template')
- 
+
+@extends("sidebar_lecture")
+
 @section('content')
     <div class="row mt-5 mb-5">
         <div class="col-lg-12 margin-tb">
@@ -7,7 +9,7 @@
                 <h2>Edit Lecture</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-secondary" href="{{ route('lectures.index') }}"> Back</a>
+                <a class="btn btn-secondary" href="{{ route('lecture') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -23,7 +25,7 @@
         </div>
     @endif
  
-    <form action="{{ route('lectures.update',$lecture->id) }}" method="POST">
+    <form action="{{ route('lecture.update') }}" method="POST">
         @csrf
         @method('PUT')
  
@@ -37,19 +39,23 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama:</strong>
-                <input type="text" name="nama_dosen" class="form-control" value="{{ $lecture->nama_dosen }}">
+                <input type="text" name="nama" class="form-control" value="{{ $lecture->nama }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Jenis Kelamin:</strong>
-                <input type="text" name="jenis_kelamin_dosen" class="form-control" value="{{ $lecture->jenis_kelamin_dosen }}">
+                <select name="jenis_kelamin" class="form-control">
+                    <option disabled selected>Pilih Jenis Kelamin</option>
+                    <option value="perempuan" {{ $lecture->jenis_kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                    <option value="laki-laki" {{ $lecture->jenis_kelamin == 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Alamat:</strong>
-                <textarea class="form-control" style="height:150px" name="alamat_dosen">{{ $lecture->alamat_dosen }}</textarea>
+                <textarea class="form-control" style="height:150px" name="alamat">{{ $lecture->alamat }}</textarea>
             </div>
         </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

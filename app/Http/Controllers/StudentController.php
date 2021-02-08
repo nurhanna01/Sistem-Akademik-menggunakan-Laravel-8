@@ -111,7 +111,7 @@ class StudentController extends Controller
     {
         $id=Auth::id();
         $mystudent=Student::find($id);
-
+ 
         return view('students.course_student',compact('mystudent'));
     }
 
@@ -125,11 +125,11 @@ class StudentController extends Controller
     {
         $id=Auth::id();
         $student=Student::find($id);
+
         $course_ids = $request->input('course_id');
         foreach($course_ids as $course_id){
             $student->courses()->attach($course_id);
         }
-
         return redirect()->route('student.course_student',1)
                          ->with('success','SKS added successfully.');
     }

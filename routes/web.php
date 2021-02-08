@@ -8,7 +8,6 @@ use App\Http\Controllers\LectureController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\AkademikController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthStudent\LoginController;
 
 
 /*
@@ -49,7 +48,7 @@ Route::get('/akademik/show_students/{id}', [AkademikController::class,'show_stud
 Route::get('/akademik/edit_students/{id}', [AkademikController::class,'edit_students'])->name('akademik.edit_students');
 Route::put('/akademik/update_students/{id}', [AkademikController::class,'update_students'])->name('akademik.update_students');
 Route::delete('/akademik/destroy_students/{id}', [AkademikController::class,'destroy_students'])->name('akademik.destroy_students');
-// Route akademik mengolad data lectures
+// Route akademik mengolad data admin
 Route::get('/akademik/admin', [AkademikController::class,'admin'])->name('akademik.admin');
 Route::get('/akademik/create_admin', [AkademikController::class,'create_admin'])->name('akademik.create_admin');
 Route::post('/akademik/store_admin', [AkademikController::class,'store_admin'])->name('akademik.store_admin');
@@ -80,9 +79,9 @@ Route::delete('/admin/destroy_courses/{id}', [AdminController::class,'destroy_co
 
 // Route User = Students
 Route::get('/student', [StudentController::class,'index'])->name('student');
-Route::get('/student/login', [LoginController::class,'showLoginForm'])->name('student.login');
-Route::post('/student/login', [LoginController::class,'login'])->name('student.login.submit');
-Route::get('/user/logout',[LoginController::class,'logout'])->name('student.logout');
+Route::get('/student/login', [App\Http\Controllers\AuthStudent\LoginController::class,'showLoginForm'])->name('student.login');
+Route::post('/student/login', [App\Http\Controllers\AuthStudent\LoginController::class,'login'])->name('student.login.submit');
+Route::get('/student/logout',[App\Http\Controllers\AuthStudent\LoginController::class,'logout'])->name('student.logout');
 
 // Route admin mengolad data pribadi/show
 Route::get('/student/show', [StudentController::class,'show'])->name('student.show');
@@ -93,3 +92,16 @@ Route::get('/student/course_student', [StudentController::class,'course_student'
 Route::get('/student/create_course_student', [StudentController::class,'create_course_student'])->name('student.create_course_student');
 Route::post('/student/store_course_student', [StudentController::class,'store_course_student'])->name('student.store_course_student');
 Route::delete('/student/destroy_course_student/{id}', [StudentController::class,'destroy_course_student'])->name('student.destroy_course_student');
+
+
+
+// Route User = Lectures
+Route::get('/lecture', [LectureController::class,'index'])->name('lecture');
+Route::get('/lecture/login', [App\Http\Controllers\AuthLecture\LoginController::class,'showLoginForm'])->name('lecture.login');
+Route::post('/lecture/login', [App\Http\Controllers\AuthLecture\LoginController::class,'login'])->name('lecture.login.submit');
+Route::get('/lecture/logout',[App\Http\Controllers\AuthLecture\LoginController::class,'logout'])->name('lecture.logout');
+
+
+Route::get('/lecture/show',[LectureController::class,'show'])->name('lecture.show');
+
+Route::get('/lecture/mycourse',[LectureController::class,'mycourse'])->name('lecture.mycourse');

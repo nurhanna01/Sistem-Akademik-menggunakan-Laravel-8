@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class StudentLoginController extends Controller
+class LectureLoginController extends Controller
 {
     /**
      * Handle an authentication attempt.
@@ -15,16 +15,16 @@ class StudentLoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        $credentials = $request->only('nim', 'password');
+        $credentials = $request->only('nip', 'password');
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('student');
+            return redirect()->intended('lecture');
         }
 
         return back()->withErrors([
-            'nim' => 'The provided credentials do not match our records.',
+            'nip' => 'The provided credentials do not match our records.',
         ]);
     }
 }
