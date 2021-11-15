@@ -1,12 +1,12 @@
-# Sistem-Informasi-Akademik-Sederhana-dengan-Laravel-8
+# Sistem-Akademik-Sederhana-dengan-Laravel-8
 
-Sistem Informasi Akademik
-Sistem Informasi Akademik(simak) adalah sebuah web yang digunakan oleh pegawai akademik,admin, dan mahasiswa.
+Sistem Akademik
+Sistem Akademik adalah sebuah web yang digunakan oleh pegawai akademik,admin, dan mahasiswa.
 - Pegawai akademik akan menambahkan data admin,dosen,dan mahasiswa untuk akun awal yang nantinya data pribadi masing2 dapat diedit kembali oleh pihak yang bersangkutan.
 - Admin dapat menambahkan data mata kuliah dan melihat mata kuliah yang diambil mahasiswa
 - Mahasiswa dapat mengambil mata kuliah(sks)
 
-# Fitur yang tersedia di Sistem Informasi Akademik
+# Fitur yang tersedia di Sistem  Akademik
 * Login Siswa dan dosen
 * CRuD pegawai akademik oleh pegawai akademik
 * CRUD Admin oleh pegawai akademik
@@ -21,7 +21,7 @@ Sistem Informasi Akademik(simak) adalah sebuah web yang digunakan oleh pegawai a
 
 # Install
 - Clone Repository
-- git clone https://github.com/nurhanna01/Sistem-Informasi-Akademik-menggunakan-Laravel-8.git
+- git clone https://github.com/nurhanna01/Sistem-Akademik-menggunakan-Laravel-8.git
 - cd Sistem-Informasi-Akademik-menggunakan-Laravel-8
 - composer install
 - npm install
